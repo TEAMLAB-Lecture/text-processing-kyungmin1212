@@ -39,9 +39,10 @@ def normalize(input_string):
         normalized_string==""
     else:
         normalized_string=normalized_string.lstrip()
-        normalized_string = input_string.lower()
+        normalized_string = normalized_string.lower()
         result=[]
         result.append(normalized_string[0])
+
         for i in range(1,len(normalized_string)):
             if normalized_string[i]==" ":
                 if normalized_string[i-1]==" ":
@@ -51,8 +52,9 @@ def normalize(input_string):
             else:
                 result.append(normalized_string[i])
         normalized_string="".join(result)
-    return normalized_string
 
+    return normalized_string
+print(normalize("   EXTRA   SPACE   "))
 
 def no_vowels(input_string):
     """
