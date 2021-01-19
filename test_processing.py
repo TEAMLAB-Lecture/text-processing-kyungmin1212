@@ -33,20 +33,24 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = input_string.lower()
+    
     normalized_string=normalized_string.rstrip()
-    normalized_string=normalized_string.lstrip()
-    result=[]
-    result.append(normalized_string[0])
-    for i in range(1,len(normalized_string)):
-        if normalized_string[i]==" ":
-            if normalized_string[i-1]==" ":
-                continue
+    if normalized_string=="":
+        normalized_string==""
+    else:
+        normalized_string=normalized_string.lstrip()
+        normalized_string = input_string.lower()
+        result=[]
+        result.append(normalized_string[0])
+        for i in range(1,len(normalized_string)):
+            if normalized_string[i]==" ":
+                if normalized_string[i-1]==" ":
+                    continue
+                else:
+                    result.append(normalized_string[i])
             else:
                 result.append(normalized_string[i])
-        else:
-            result.append(normalized_string[i])
-    normalized_string="".join(result)
+        normalized_string="".join(result)
     return normalized_string
 
 
@@ -73,7 +77,7 @@ def no_vowels(input_string):
     """
     new_string_list=[]
     for i in range(len(input_string)):
-        if input_string[i] not in ['a','e','i','o','u']:
+        if input_string[i] not in ['a','e','i','o','u','A','E','I','O','U']:
             new_string_list.append(input_string[i])
 
     no_vowel_string = "".join(new_string_list)
